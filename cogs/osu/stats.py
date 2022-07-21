@@ -62,6 +62,12 @@ class OsuStats(discord.Cog):
         description='Let you link osu! username to your account. (You can link any name, no limitations)'
     )
     async def link(self, ctx: discord.ApplicationContext, username: discord.Option(str, description="osu! nickname")):
+
+        osu_data = await OsuPlayer.from_nickname(nickname=username)
+
+        if osu_data is None:
+            return await ctx.respond(content=f'❌ There is no user with nickname `{username}`.', ephemeral=True)
+
         await ctx.defer()
 
         user, created = await User.get_or_create(discord_id=ctx.author.id)
@@ -72,13 +78,9 @@ class OsuStats(discord.Cog):
 
         user.connections = updated_connections
 
-        osu_data = await user.get_osu_player()
-        country_flag = f':flag_{osu_data.country.lower()}:'
-
-        if osu_data is None:
-            return await ctx.respond(content=f'❌ There is no user with nickname `{username}`.', ephemeral=True)
-
         await user.save()
+
+        country_flag = f':flag_{osu_data.country.lower()}:'
 
         await ctx.respond(
             content=f'☑ Successfully linked username {country_flag} `{osu_data.nickname}` to your discord account.',

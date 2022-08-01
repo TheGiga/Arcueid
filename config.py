@@ -6,7 +6,7 @@ PROJECT_NAME: str = 'Arcueid'
 CONNECTIONS: dict = {
     "osu": {
         'connection': "osu!",
-        'username': None
+        'username': ""
     }
 }
 

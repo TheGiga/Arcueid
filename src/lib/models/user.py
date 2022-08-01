@@ -20,7 +20,7 @@ class User(Model):
 
     async def get_osu_player(self) -> Union[None, OsuPlayer]:
         username = self.connections['osu'].get('username')
-        if username is None:
+        if len(username) == 0:
             return None
 
         player = await OsuPlayer.from_nickname(username)

@@ -17,8 +17,11 @@ class OsuPlayer(BaseModel):
     ctb: gamemodes.Ctb
     mania: gamemodes.Mania
 
+    # i'd like to rewrite this bit to be more fancy, looking on it
+
     @classmethod
     async def from_nickname(cls, nickname: str):
+
         modes = {
             "osu!": 0,
             "Taiko": 1,
@@ -57,7 +60,7 @@ class OsuPlayer(BaseModel):
         osu_ctb: gamemodes.Base = gamemodes.Ctb.parse_obj(data[2])
         osu_mania: gamemodes.Base = gamemodes.Mania.parse_obj(data[3])
 
-        return cls(
+        result = cls(
             nickname=data[0].get('username'),
             user_id=data[0].get('user_id'),
             join_date=datetime.strptime(data[0].get('join_date'), '%Y-%m-%d %H:%M:%S'),
@@ -68,3 +71,5 @@ class OsuPlayer(BaseModel):
             ctb=osu_ctb,
             mania=osu_mania
         )
+
+        return result

@@ -51,4 +51,3 @@ class Base(BaseModel):
         if v is None:
             return 0
         return v
-

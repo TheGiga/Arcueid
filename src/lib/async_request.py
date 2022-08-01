@@ -6,6 +6,8 @@ async def get(string: str, params: dict = None) -> Union[dict, None]:
     async with aiohttp.ClientSession() as session:
         async with session.get(string, params=params) as resp:
 
+            print(f'🚀 Request sent to {resp.url}. Status: {resp.status}')
+
             if resp.status == 404:
                 return None
 

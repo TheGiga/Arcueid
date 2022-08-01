@@ -25,7 +25,8 @@ class OsuStats(discord.Cog):
             return await ctx.respond(
                 ":x: **Couldn't get statistics...**\n"
                 "This user doesn't seem to have osu! username linked. User `/osu link`",
-                ephemeral=True)
+                ephemeral=True
+            )
 
         embed = get_player_embed(data)
         view = get_player_view(data)

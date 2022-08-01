@@ -38,6 +38,7 @@ class OsuStats(discord.Cog):
             self, ctx: discord.ApplicationContext,
             nickname: discord.Option(str, description='osu! player nickname', required=False)
     ):
+        print(nickname)
         await ctx.defer()
 
         if nickname is None:

@@ -13,9 +13,9 @@ class OsuPlayer(BaseModel):
     country: str
 
     osu: gamemodes.Std
-    taiko: gamemodes.Taiko
-    ctb: gamemodes.Ctb
-    mania: gamemodes.Mania
+    # taiko: gamemodes.Taiko
+    # ctb: gamemodes.Ctb
+    # mania: gamemodes.Mania
 
     # i'd like to rewrite this bit to be more fancy, looking on it
 
@@ -31,22 +31,16 @@ class OsuPlayer(BaseModel):
 
         api_key = os.getenv("osu_api_key")
 
-        data = []
-
-        for mode in modes:
-            params = {
-                'k': api_key,
-                'u': nickname,
-                'm': modes[mode],
-                'type': 'string'
-            }
-            raw_data = await async_get(f'https://osu.ppy.sh/api/get_user', params=params)
-            try:
-                data.append(raw_data[0])
-            except IndexError:
-                data.append(None)
-
-        if data[0] is None:
+        params = {
+            'k': api_key,
+            'u': nickname,
+            'm': modes['osu!'],
+            'type': 'string'
+        }
+        data = await async_get(f'https://osu.ppy.sh/api/get_user', params=params)
+        try:
+            data[0]
+        except IndexError:
             return None
 
         osu_std: gamemodes.Base = gamemodes.Std.parse_obj(data[0])
@@ -56,20 +50,13 @@ class OsuPlayer(BaseModel):
         osu_std.better_accuracy = round(float(osu_std.accuracy), ndigits=2)
         osu_std.total_playtime = timedelta(seconds=osu_std.total_seconds_played)
 
-        osu_taiko: gamemodes.Base = gamemodes.Taiko.parse_obj(data[1])
-        osu_ctb: gamemodes.Base = gamemodes.Ctb.parse_obj(data[2])
-        osu_mania: gamemodes.Base = gamemodes.Mania.parse_obj(data[3])
-
         result = cls(
             nickname=data[0].get('username'),
             user_id=data[0].get('user_id'),
             join_date=datetime.strptime(data[0].get('join_date'), '%Y-%m-%d %H:%M:%S'),
             country=data[0].get('country'),
 
-            osu=osu_std,
-            taiko=osu_taiko,
-            ctb=osu_ctb,
-            mania=osu_mania
+            osu=osu_std
         )
 
         return result

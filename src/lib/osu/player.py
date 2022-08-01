@@ -29,7 +29,7 @@ class OsuPlayer(BaseModel):
             "osu!mania": 3
         }
 
-        api_key = os.getenv("osu_api_key")
+        api_key = os.getenv("OSU_API_KEY")
 
         params = {
             'k': api_key,

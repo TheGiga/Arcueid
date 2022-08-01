@@ -31,7 +31,7 @@ class Profile(discord.Cog):
         for connection in user_connections:
             username = user_connections[connection].get('username')
             connection_name = user_connections[connection].get("connection")
-            if username is not None:
+            if len(username) != 0:
                 emoji = config.CONNECTION_EMOJIS.get(connection_name)
                 embed.add_field(
                     name=f'{emoji if not None else ""} {connection_name}',

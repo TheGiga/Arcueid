@@ -1,5 +1,3 @@
-import datetime
-
 import discord
 from src.lib.osu import OsuPlayer
 from config import RANKING_EMOJIS as RE
@@ -16,10 +14,10 @@ def get_player_embed(data: OsuPlayer) -> discord.Embed:
 
     embed.description = \
         f"""
-        {country} {data.country} #{osu_std.pp_country_rank}
-        🇺🇳 WW #{osu_std.pp_rank}
-        
-        Playtime: ` {round(osu_std.total_seconds_played // 3600)} hours `
+{country} {data.country} #{osu_std.pp_country_rank}
+🇺🇳 WW #{osu_std.pp_rank}
+
+Playtime: ` {round(osu_std.total_seconds_played // 3600)} hours `
         """
 
     # DONE: Add other game modes

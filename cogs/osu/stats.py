@@ -1,10 +1,9 @@
 import discord
-from discord import SlashCommandGroup
-
 import config
 from src import Saber
 from src.lib.models import User
 from src.lib.osu import OsuPlayer, get_player_embed, get_player_view
+from discord import SlashCommandGroup
 
 
 class OsuStats(discord.Cog):

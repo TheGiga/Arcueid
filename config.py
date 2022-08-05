@@ -1,5 +1,12 @@
 OWNER_ID: int = 352062534469156864
+OWNER_NAME: str = 'gigalegit-#0880'
 PROJECT_NAME: str = 'Arcueid'
+
+# COGS
+COGS: list = [
+    'cogs.osu.stats',
+    'cogs.social.profile'
+]
 
 #  USER CONNECTIONS TEMPLATE
 

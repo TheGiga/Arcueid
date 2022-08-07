@@ -5,7 +5,9 @@ PROJECT_NAME: str = 'Arcueid'
 # COGS
 COGS: list = [
     'cogs.osu.stats',
-    'cogs.social.profile'
+    'cogs.social.profile',
+    'cogs.info',
+    'cogs.help'
 ]
 
 #  USER CONNECTIONS TEMPLATE

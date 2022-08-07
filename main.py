@@ -25,6 +25,7 @@ async def on_ready():
     """)
     print(f"{Colors.OKCYAN.value}======================================================")
 
+
 if __name__ == '__main__':
     run_async(db_init())
     bot_instance.run(os.getenv("TOKEN"))

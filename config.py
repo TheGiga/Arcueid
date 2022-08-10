@@ -7,7 +7,8 @@ COGS: list = [
     'cogs.osu.stats',
     'cogs.social.profile',
     'cogs.info',
-    'cogs.help'
+    'cogs.help',
+    'cogs.owoify.message'
 ]
 
 #  USER CONNECTIONS TEMPLATE
@@ -37,3 +38,15 @@ RANKING_EMOJIS: dict = {
 }
 
 OSU: str = "<:osu:996567765676732516>"
+
+# OWOIfy
+PREFIXES: list = ["<3", "0w0", "H-hewwo??", "HIIII!", "Haiiii!", "Huohhhh.", "OWO", "OwO", "UwU", "Whats this?"]
+SUFFIXES: list = ["( ͡° ᴥ ͡°)", "(இωஇ )", "(๑•́ ₃ •̀๑)", "(• o •)", "(●´ω｀●)", "(◠‿◠✿)", "(✿ ♡‿♡)", "(❁´◡`❁)",
+                  "(人◕ω◕)", "(；ω；)", "(｀へ´)", "._.", "\\*nuzzles u\\*", ":3", ":D", ":P", ";-;", ";3", ";_;",
+                  "<{^v^}>", ">_<", ">_>", "UwU", "XDDD", "^-^", "^_^", "x3c", "x3", "xD", "ÙωÙ", "ʕʘ‿ʘʔ", "ㅇㅅㅇ",
+                  "fwendo", "(＾ｖ＾)", "nya~"]
+SUBSTITUTIONS: dict = {"love": "wuv", "Love": "Wuv", "loving": "wuving", "Loving": "Wuving", "r": "w", "l": "w",
+                       "R": "W", "L": "W", "th ": "f ", "no": "nu", "No": "Nu", "has": "haz", "Has": "Haz",
+                       "have": "haz", "Have": "Haz", " says": " sez", "you": "uu", "I've": "I", "the ": "da ",
+                       "The ": "Da ", "THE ": "THE ", "qu": "qw", "Qu": "Qw", "pause ": "paws ", "Pause ": "Paws ",
+                       "paus": "paws", "Paus": "paws", "u": "wu"}

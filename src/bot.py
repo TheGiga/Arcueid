@@ -39,6 +39,9 @@ class Saber(Bot):
 
         user_commands = ''
         slash_commands = ''
+        message_commands = ''
+
+        # TODO: should i remake this bit? too many elif's
 
         for command in self.commands:
             if isinstance(command, discord.SlashCommandGroup):
@@ -48,14 +51,18 @@ class Saber(Bot):
                 embed.add_field(name=f'/{command.qualified_name}', value=sub_commands)
             elif isinstance(command, discord.UserCommand):
                 user_commands += f'`{command.qualified_name}`\n'
+            elif isinstance(command, discord.MessageCommand):
+                message_commands += f'`{command.qualified_name}`\n'
             else:
                 slash_commands += f'`/{command.qualified_name}`\n'
 
         embed.description = f"""
-            **User Commands**:
-            {user_commands}
-            **Standalone Slash Commands**:
-            {slash_commands}
+**User Commands**:
+{user_commands}
+**Message Commands**:
+{message_commands}
+**Standalone Slash Commands**:
+{slash_commands}
         """
 
         return embed

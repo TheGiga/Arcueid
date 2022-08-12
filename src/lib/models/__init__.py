@@ -1,2 +1,3 @@
 from .user import User
-__models__ = [User]
+from .punishment import Punishment
+__models__ = [User, Punishment]

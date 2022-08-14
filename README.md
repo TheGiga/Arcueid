@@ -2,11 +2,17 @@
 My own multipurpose bot, i make it mainly for fun. In-code name - Saber, because im [Type-Moon](https://www.youtube.com/channel/UC2SPttwqD13PoROoLR_NKUg) fan.
 
 # Functionality :rocket:
+- [x] Moderation (there is no full moderation, just a few simple command to help ME in first place)
+  - [x] /mute
 - [x] User profiles (they will progress with the rest of bot)
-  - /profile
+  - [x] /profile
 - [x] osu! game profile checking and linking.
-  - /osu player
-  - /osu link
+  - [x] /osu player
+  - [x] /osu link
+
+- [x] Basic
+  - [x] /help
+  - [x] /info
   
   ![image](https://user-images.githubusercontent.com/49173264/179756421-4b0633d6-7817-47f1-8a0f-148138e8b42f.png)
 

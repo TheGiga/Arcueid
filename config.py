@@ -1,6 +1,7 @@
 OWNER_ID: int = 352062534469156864
 OWNER_NAME: str = 'gigalegit-#0880'
 PROJECT_NAME: str = 'Arcueid'
+SUPPORT_SERVER_INVITE: str = 'https://discord.gg/27w6rzK892'
 
 # COGS
 COGS: list = [

@@ -20,6 +20,37 @@ class Saber(Bot):
             else:
                 print(f'{ConsoleColors.OKGREEN.value}Successfully loaded {cog}')
 
+    # Stole this bit from Toolkit's code https://github.com/Pycord-Development/Toolkit
+
+    async def on_application_command_error(
+            self, ctx: discord.ApplicationContext, error: discord.ApplicationCommandError
+    ):
+        if isinstance(error, discord.ApplicationCommandInvokeError):
+            await ctx.respond(
+                "An unexpected error has occurred and I've notified my developer. "
+                "In the meantime, consider joining my support server.",
+                view=discord.ui.View(
+                    discord.ui.Button(
+                        label="Support", url=config.SUPPORT_SERVER_INVITE
+                    ),
+                    discord.ui.Button(
+                        label="GitHub Repo",
+                        url="https://github.com/TheGiga/Arcueid",
+                    ),
+                ),
+            )
+            header = f"Command: `/{ctx.command.qualified_name}`"
+            if ctx.guild is not None:
+                header += f" | Guild: `{ctx.guild.name} ({ctx.guild_id})`"
+
+        await ctx.respond(
+            embed=discord.Embed(
+                title=error.__class__.__name__,
+                description=str(error),
+                color=discord.Color.embed_background(),
+            )
+        )
+
     @property
     def guild_count(self) -> int:
         return len(self.guilds)
@@ -44,17 +75,18 @@ class Saber(Bot):
         # TODO: should i remake this bit? too many elif's
 
         for command in self.commands:
-            if isinstance(command, discord.SlashCommandGroup):
-                sub_commands = ''
-                for sub_command in command.subcommands:
-                    sub_commands += f'> `{sub_command.name}` - {sub_command.description}\n'
-                embed.add_field(name=f'/{command.qualified_name}', value=sub_commands)
-            elif isinstance(command, discord.UserCommand):
-                user_commands += f'`{command.qualified_name}`\n'
-            elif isinstance(command, discord.MessageCommand):
-                message_commands += f'`{command.qualified_name}`\n'
-            else:
-                slash_commands += f'`/{command.qualified_name}`\n'
+            match command.__class__:
+                case discord.SlashCommandGroup:
+                    sub_commands = ''
+                    for sub_command in command.subcommands:
+                        sub_commands += f'> `{sub_command.name}` - {sub_command.description}\n'
+                    embed.add_field(name=f'/{command.qualified_name}', value=sub_commands)
+                case discord.UserCommand:
+                    user_commands += f'`{command.qualified_name}`\n'
+                case discord.MessageCommand:
+                    message_commands += f'`{command.qualified_name}`\n'
+                case _:
+                    slash_commands += f'`/{command.qualified_name}`\n'
 
         embed.description = f"""
 **User Commands**:

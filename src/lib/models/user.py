@@ -1,4 +1,7 @@
 import datetime
+
+from discord import HTTPException
+
 import config
 import discord
 from typing import Union
@@ -48,5 +51,14 @@ class User(Model):
 
         # Exceptions should be caught outside this specific function.
         await user.timeout_for(duration=time, reason=reason)
+
+        try:
+            embed = discord.Embed(colour=discord.Colour.embed_background(), timestamp=discord.utils.utcnow())
+            embed.title = f'CASE #{punishment.id}'
+            embed.description = f'💢 You were muted in `{guild.name}`!\n**Reason:**\n```css\n[ {reason} ]```'
+            embed.add_field(name='👮 Moderator', value=author.mention)
+            await user.send(embed=embed)
+        except HTTPException:
+            pass
 
         return punishment

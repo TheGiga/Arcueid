@@ -24,10 +24,12 @@ class Moderation(discord.Cog):
             time: discord.Option(str, description="Time"),
             reason: discord.Option(str, description="Reason"),
     ):
+        await ctx.defer()
+
         if member.top_role.position >= ctx.author.top_role.position:
             return await ctx.respond(
                 ephemeral=True,
-                content='Вы не можете замутить пользователя с ролью выше вашей!'
+                content="You can't mute a person with role higher then yours!"
             )
 
         user, created = await User.get_or_create(discord_id=member.id)

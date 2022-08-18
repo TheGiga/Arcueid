@@ -1,7 +1,12 @@
 OWNER_ID: int = 352062534469156864
 OWNER_NAME: str = 'gigalegit-#0880'
 PROJECT_NAME: str = 'Arcueid'
+TESTING_BOT_ID: int = 965191147041464330  # For better testing experience, for example
+# discord.ApplicationCommandInvokeError will be raised, instead of just sending message to channel, if bot has this id.
+
+# SUPPORT SERVER
 SUPPORT_SERVER_INVITE: str = 'https://discord.gg/27w6rzK892'
+SUPPORT_SERVER_ID: int = 804835509968568351
 
 # COGS
 COGS: list = [
@@ -9,6 +14,7 @@ COGS: list = [
     'cogs.social.profile',
     'cogs.owoify.message',
     'cogs.moderation.mute',
+    'cogs.moderation.punishments',
     'cogs.info',
     'cogs.help',
 ]
@@ -20,6 +26,12 @@ CONNECTIONS: dict = {
         'connection': "osu!",
         'username': ""
     }
+}
+
+# GUILD's
+DEFAULT_GUILD_SETTINGS = {
+    "mescol": False,
+    "beta": False
 }
 
 #  CONNECTION EMOJIS

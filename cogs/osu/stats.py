@@ -62,13 +62,12 @@ class OsuStats(discord.Cog):
         description='Let you link osu! username to your account. (You can link any name, no limitations)'
     )
     async def link(self, ctx: discord.ApplicationContext, username: discord.Option(str, description="osu! nickname")):
+        await ctx.defer()
 
         osu_data = await OsuPlayer.from_nickname(nickname=username)
 
         if osu_data is None:
             return await ctx.respond(content=f'❌ There is no user with nickname `{username}`.', ephemeral=True)
-
-        await ctx.defer()
 
         user, created = await User.get_or_create(discord_id=ctx.author.id)
         user: User

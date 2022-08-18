@@ -1,8 +1,12 @@
+import os
+
+import aiohttp
 import discord
 
 import config
-from discord import Bot, ExtensionNotFound, SlashCommandGroup
+from discord import Bot, ExtensionNotFound, Webhook
 from src.enum import ConsoleColors
+from src.lib.models import Guild
 
 
 class Saber(Bot):
@@ -19,6 +23,18 @@ class Saber(Bot):
                 print(f'{ConsoleColors.FAIL.value}Extension {cog} not found!')
             else:
                 print(f'{ConsoleColors.OKGREEN.value}Successfully loaded {cog}')
+
+    async def on_message(self, message: discord.Message):
+        await Guild.get_or_create(discord_id=message.guild.id)
+        print(f'{self.user} > Successfully created object for {message.guild.id} guild, bot was already on server.')
+
+    async def on_guild_join(self, guild: discord.Guild):
+        embed = discord.Embed(colour=discord.Colour.green(), timestamp=discord.utils.utcnow())
+        embed.title = f"Joined guild: `{guild.name} ({guild.id})`"
+        embed.add_field(name='📁 Guilds', value=str(self.guild_count))
+
+        await Guild.get_or_create(discord_id=guild.id)
+        await self.send_log_message(embed=embed)
 
     # Stole this bit from Toolkit's code https://github.com/Pycord-Development/Toolkit
 
@@ -39,9 +55,15 @@ class Saber(Bot):
                     ),
                 ),
             )
+
             header = f"Command: `/{ctx.command.qualified_name}`"
             if ctx.guild is not None:
                 header += f" | Guild: `{ctx.guild.name} ({ctx.guild_id})`"
+
+            embed = discord.Embed(colour=discord.Colour.red(), title=header)
+            embed.description = str(error)
+
+            await self.send_log_message(embed=embed)
 
         await ctx.respond(
             embed=discord.Embed(
@@ -50,6 +72,15 @@ class Saber(Bot):
                 color=discord.Color.embed_background(),
             )
         )
+
+        if self.user.id == config.TESTING_BOT_ID:
+            raise error
+
+    async def send_log_message(self, embed: discord.Embed = None):
+        async with aiohttp.ClientSession() as session:
+            webhook = Webhook.from_url(os.getenv("ERROR_LOG_WEBHOOK"), session=session)
+            embed.set_footer(text=self.user)
+            await webhook.send(embed=embed)
 
     @property
     def guild_count(self) -> int:
@@ -71,8 +102,6 @@ class Saber(Bot):
         user_commands = ''
         slash_commands = ''
         message_commands = ''
-
-        # TODO: should i remake this bit? too many elif's
 
         for command in self.commands:
             match command.__class__:

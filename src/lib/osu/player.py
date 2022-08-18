@@ -37,7 +37,9 @@ class OsuPlayer(BaseModel):
             'm': modes['osu!'],
             'type': 'string'
         }
+
         data = await async_get(f'https://osu.ppy.sh/api/get_user', params=params)
+
         try:
             data[0]
         except IndexError:

@@ -9,7 +9,7 @@ class Profile(discord.Cog):
     def __init__(self, bot: Saber):
         self.bot = bot
 
-    @discord.slash_command(name='profile')
+    @discord.slash_command(name='profile', description='User profiles.')
     async def profile(
             self, ctx: discord.ApplicationContext,
             target: discord.Option(discord.Member, name='user', required=False)
@@ -18,7 +18,6 @@ class Profile(discord.Cog):
             target = ctx.author
 
         user, created = await User.get_or_create(discord_id=target.id)
-        user: User
 
         user_connections = user.connections
 

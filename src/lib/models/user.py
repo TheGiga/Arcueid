@@ -15,6 +15,7 @@ class User(Model):
     id = fields.IntField(pk=True)
     discord_id = fields.IntField()
     balance = fields.IntField(default=0)
+    punishments = fields.JSONField(default=[])
     connections = fields.JSONField(default=config.CONNECTIONS)
 
     def __str__(self):
@@ -44,10 +45,14 @@ class User(Model):
         punishment = await Punishment.create(
             user_id=self.discord_id,
             author_id=author.id,
+            guild_id=guild.id,
             reason=reason,
             muted_for=time,
             date=datetime.datetime.utcnow()
         )
+
+        self.punishments.append(punishment.id)
+        await self.save()
 
         # Exceptions should be caught outside this specific function.
         await user.timeout_for(duration=time, reason=reason)

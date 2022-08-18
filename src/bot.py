@@ -24,10 +24,6 @@ class Saber(Bot):
             else:
                 print(f'{ConsoleColors.OKGREEN.value}Successfully loaded {cog}')
 
-    async def on_message(self, message: discord.Message):
-        await Guild.get_or_create(discord_id=message.guild.id)
-        print(f'{self.user} > Successfully created object for {message.guild.id} guild, bot was already on server.')
-
     async def on_guild_join(self, guild: discord.Guild):
         embed = discord.Embed(colour=discord.Colour.green(), timestamp=discord.utils.utcnow())
         embed.title = f"Joined guild: `{guild.name} ({guild.id})`"

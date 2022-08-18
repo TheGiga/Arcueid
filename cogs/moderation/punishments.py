@@ -63,7 +63,7 @@ class Punishments(discord.Cog):
             punishment = await Punishment.get(id=punishment_id)
             text += f'`#{punishment.id}` **{punishment.type.upper()}** | '
 
-        embed.description = text[:-2] + f"\n\n*Use </case:1009867853299732591> " \
+        embed.description = text[:-2] + f"\n\n*Use </case:1009892953604497429> " \
                                         "to get additional information about specific Case*."
 
         embed.set_footer(text='by gigalegit-#0880')

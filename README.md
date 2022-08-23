@@ -12,13 +12,15 @@ My own multipurpose bot, i make it mainly for fun. In-code name - Saber, because
 - [x] osu! game profile checking and linking.
   - [x] /osu player
   - [x] /osu link
+
+  ![image](https://user-images.githubusercontent.com/49173264/179756421-4b0633d6-7817-47f1-8a0f-148138e8b42f.png)
+
 - [ ] MesCol
 
 - [x] Basic
   - [x] /help
   - [x] /info
   
-  ![image](https://user-images.githubusercontent.com/49173264/179756421-4b0633d6-7817-47f1-8a0f-148138e8b42f.png)
 
 - [ ] War Thunder profile chechking, linking and War Thunder website parser lib (planned)
 

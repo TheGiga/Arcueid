@@ -24,7 +24,11 @@ class Moderation(discord.Cog):
             time: discord.Option(str, description="Time"),
             reason: discord.Option(str, description="Reason"),
     ):
-        await ctx.defer()
+        if ctx.author.id == member.id:
+            return await ctx.respond(
+                content="❌ Self harm is not allowed!",
+                ephemeral=True
+            )
 
         if member.top_role.position >= ctx.author.top_role.position:
             return await ctx.respond(
@@ -33,9 +37,10 @@ class Moderation(discord.Cog):
             )
 
         user, created = await User.get_or_create(discord_id=member.id)
-        user: User
 
         time = time_str.convert(time)
+
+        await ctx.defer()
 
         try:
             punishment = await user.timeout(
@@ -45,9 +50,9 @@ class Moderation(discord.Cog):
                 time=time
             )
         except UserNotFound:
-            return await ctx.respond(content='❌ User not found!', ephemeral=True)
+            return await ctx.respond(content='❌ User not found!')
         except Forbidden:
-            return await ctx.respond(content='⚠ Bot has no permissions to mute this user.', ephemeral=True)
+            return await ctx.respond(content='⚠ Bot has no permissions to mute this user.')
 
         embed = discord.Embed(
             title=f'🚔 Case №{punishment.id}',

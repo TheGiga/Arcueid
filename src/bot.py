@@ -32,7 +32,8 @@ class Saber(Bot):
         await Guild.get_or_create(discord_id=guild.id)
         await self.send_log_message(embed=embed)
 
-    # Stole this bit from Toolkit's code https://github.com/Pycord-Development/Toolkit
+    # Stole this bit from Toolkit's code https://github.com/Pycord-Development/Pycord-Manager /
+    # (https://github.com/Dorukyum/Toolkit)
 
     async def on_application_command_error(
             self, ctx: discord.ApplicationContext, error: discord.ApplicationCommandError

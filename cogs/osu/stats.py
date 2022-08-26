@@ -59,7 +59,7 @@ class OsuStats(discord.Cog):
 
     @osu.command(
         name='link',
-        description='Let you link osu! username to your account. (You can link any name, no limitations)'
+        description='Lets you link osu! username to your account. (You can link any name, no limitations)'
     )
     async def link(self, ctx: discord.ApplicationContext, username: discord.Option(str, description="osu! nickname")):
         await ctx.defer()

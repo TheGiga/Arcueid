@@ -8,8 +8,8 @@ My own multipurpose bot, i make it mainly for fun. In-code name - Saber, because
   - [x] /punishments
   - [ ] /ban
 
-- [x] [RU/UA] AniLibria - оповещения и просмотр аниме в дискорд.
-  - [x] Оповещения о выходе новых серий
+- [x] [RU/UA] AniLibria - оповещения и просмотр аниме в дискорд. `/anilibria`
+  - [x] Оповещения о выходе новых серий `/anilibria reminder_set`
   - [ ] Поиск аниме по названию
   - [ ] Просмотр аниме
 

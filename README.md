@@ -7,8 +7,15 @@ My own multipurpose bot, i make it mainly for fun. In-code name - Saber, because
   - [x] /case
   - [x] /punishments
   - [ ] /ban
+
+- [x] [RU/UA] AniLibria - оповещения и просмотр аниме в дискорд.
+  - [x] Оповещения о выходе новых серий
+  - [ ] Поиск аниме по названию
+  - [ ] Просмотр аниме
+
 - [x] User profiles (they will progress with the rest of bot)
   - [x] /profile
+  
 - [x] osu! game profile checking and linking.
   - [x] /osu player
   - [x] /osu link
@@ -23,8 +30,6 @@ My own multipurpose bot, i make it mainly for fun. In-code name - Saber, because
   
 
 - [ ] War Thunder profile chechking, linking and War Thunder website parser lib (planned)
-
-~~- [ ] If discord pushes up upload limit to 500MB -> In-Discord anime viewing bot.~~ This will probably be another project.
 
 ![tsukhime-remake](https://user-images.githubusercontent.com/49173264/179757105-ddc86a78-dc6d-419a-8e59-96d856d3a0f9.gif)
 

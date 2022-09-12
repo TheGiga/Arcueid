@@ -13,7 +13,7 @@ My own multipurpose bot, i make it mainly for fun. In-code name - Saber, because
   - [ ] Поиск аниме по названию
   - [ ] Просмотр аниме
   
-  ![image](https://user-images.githubusercontent.com/49173264/189772021-fde3352a-4f12-4c72-86ea-7d71468c65cb.png)
+  ![image](https://user-images.githubusercontent.com/49173264/189772134-4099fd76-298c-4519-bca6-d66fd1016834.png)
 
 - [x] User profiles (they will progress with the rest of bot)
   - [x] /profile

@@ -1,7 +1,7 @@
 import os
 
 from pydantic import BaseModel
-from src.lib import async_get
+from ..async_request import get as async_get
 from datetime import datetime, timedelta
 from . import gamemodes
 
@@ -13,6 +13,7 @@ class OsuPlayer(BaseModel):
     country: str
 
     osu: gamemodes.Std
+
     # taiko: gamemodes.Taiko
     # ctb: gamemodes.Ctb
     # mania: gamemodes.Mania

@@ -1,5 +1,5 @@
 import discord
-from src.lib.osu import OsuPlayer
+from src.osu import OsuPlayer
 
 
 def get_player_view(data: OsuPlayer) -> discord.ui.View:

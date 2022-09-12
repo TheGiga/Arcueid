@@ -1,7 +1,4 @@
-from enum import Enum
-
-
-class ConsoleColors(Enum):
+class ConsoleColors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'

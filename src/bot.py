@@ -1,15 +1,17 @@
 import os
+from abc import ABC
 
 import aiohttp
 import discord
 
 import config
-from discord import Bot, ExtensionNotFound, Webhook
-from src.enum import ConsoleColors
-from src.lib.models import Guild
+from discord import ExtensionNotFound, Webhook
+from pycord.multicog import Bot
+from .colors import ConsoleColors
+from src.models import Guild
 
 
-class Saber(Bot):
+class Saber(Bot, ABC):
     def __init__(self, *args, **options):
         super().__init__(*args, **options)
 
@@ -20,9 +22,9 @@ class Saber(Bot):
             try:
                 self.load_extension(cog)
             except ExtensionNotFound:
-                print(f'{ConsoleColors.FAIL.value}Extension {cog} not found!')
+                print(f'{ConsoleColors.FAIL}Extension {cog} not found!')
             else:
-                print(f'{ConsoleColors.OKGREEN.value}Successfully loaded {cog}')
+                print(f'{ConsoleColors.OKGREEN}Successfully loaded {cog}')
 
     async def on_guild_join(self, guild: discord.Guild):
         embed = discord.Embed(colour=discord.Colour.green(), timestamp=discord.utils.utcnow())

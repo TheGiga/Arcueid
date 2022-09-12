@@ -1,3 +1,4 @@
 from .bot import Saber
-from .enum import ConsoleColors
+from .colors import ConsoleColors
 from .database import db_init
+from .async_request import get as async_get

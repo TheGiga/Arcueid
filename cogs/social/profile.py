@@ -2,7 +2,7 @@ import discord
 
 import config
 from src import Saber
-from src.lib.models import User
+from src.models import User
 
 
 class Profile(discord.Cog):

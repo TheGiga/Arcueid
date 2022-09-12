@@ -7,7 +7,7 @@ import discord
 from typing import Union
 from tortoise import fields
 from tortoise.models import Model
-from src.lib.osu import OsuPlayer
+from src.osu import OsuPlayer
 from .punishment import Punishment
 
 

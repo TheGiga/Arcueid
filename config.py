@@ -1,3 +1,5 @@
+import datetime
+
 OWNER_ID: int = 352062534469156864
 OWNER_NAME: str = 'gigalegit-#0880'
 PROJECT_NAME: str = 'Arcueid'
@@ -15,18 +17,21 @@ COGS: list = [
     'cogs.owoify.message',
     'cogs.moderation.mute',
     'cogs.moderation.punishments',
+    'cogs.al.reminder',
     'cogs.info',
     'cogs.help',
 ]
 
-#  USER CONNECTIONS TEMPLATE
-
+# USER CONNECTIONS TEMPLATE
 CONNECTIONS: dict = {
     "osu": {
         'connection': "osu!",
         'username': ""
     }
 }
+
+# DEFAULT's
+DEFAULT_FOOTER: str = f'MLP © gigabit- {datetime.datetime.utcnow().year}'
 
 # GUILD's
 DEFAULT_GUILD_SETTINGS = {

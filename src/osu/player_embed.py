@@ -1,5 +1,5 @@
 import discord
-from src.lib.osu import OsuPlayer
+from src.osu import OsuPlayer
 from config import RANKING_EMOJIS as RE
 
 

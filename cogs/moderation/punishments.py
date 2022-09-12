@@ -1,7 +1,7 @@
 import discord
 from src import Saber
-from src.lib.models import User
-from src.lib.models import Punishment
+from src.models import User
+from src.models import Punishment
 
 
 class Punishments(discord.Cog):

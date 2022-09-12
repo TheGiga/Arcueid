@@ -2,7 +2,7 @@ import datetime
 import os
 import discord
 from dotenv import load_dotenv
-from src import Saber, ConsoleColors as Colors, db_init
+from src import anilibria, Saber, ConsoleColors as Colors, db_init
 from art import tprint
 from tortoise import run_async
 
@@ -14,7 +14,7 @@ bot_instance: Saber = Saber(intents=intents)
 
 @bot_instance.event
 async def on_ready():
-    print(Colors.OKGREEN.value)
+    print(Colors.OKGREEN)
     tprint("SABER")
     print(f"""
 ╔══════════╤═══════════════════════════════════────┄┄┄┄
@@ -23,7 +23,7 @@ async def on_ready():
 ║ Time UTC │ {datetime.datetime.utcnow().strftime("%d-%m-%y %H:%M")}
 ╚══════════╧═══════════════════════════════════────┄┄┄┄
     """)
-    print(f"{Colors.OKCYAN.value}======================================================")
+    print(f"{Colors.OKCYAN}======================================================")
 
 
 if __name__ == '__main__':

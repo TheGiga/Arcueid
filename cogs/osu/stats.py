@@ -1,8 +1,8 @@
 import discord
 import config
 from src import Saber
-from src.lib.models import User
-from src.lib.osu import OsuPlayer, get_player_embed, get_player_view
+from src.models import User
+from src.osu import OsuPlayer, get_player_embed, get_player_view
 from discord import SlashCommandGroup
 
 

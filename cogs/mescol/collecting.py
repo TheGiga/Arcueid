@@ -1,6 +1,6 @@
 import discord
 from src import Saber
-from src.lib.models import Guild
+from src.models import Guild
 
 
 # TODO: Implement the thing fully

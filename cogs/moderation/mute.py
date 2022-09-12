@@ -8,7 +8,7 @@ from discord.ext.commands import has_permissions
 from datetime import datetime
 
 from src import Saber
-from src.lib.models import User
+from src.models import User
 
 
 class Moderation(discord.Cog):

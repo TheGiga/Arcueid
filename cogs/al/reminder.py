@@ -34,7 +34,8 @@ class ALReminderRU(discord.Cog):
 
         if created or reminder is None:
             return await ctx.respond(
-                content="Оповещения не включены!, используйте </reminder set:1015015152644542485> для их включения.",
+                content="Оповещения не включены!, используйте </anilibria reminder_set:1019016839885508707> "
+                        "для их включения.",
                 ephemeral=True
             )
 
@@ -60,7 +61,8 @@ class ALReminderRU(discord.Cog):
 
         if created or reminder is None:
             return await ctx.respond(
-                content="Оповещения не включены!, используйте </reminder set:1015015152644542485> для их включения.",
+                content="Оповещения не включены!, используйте </anilibria reminder_set:1019016839885508707> "
+                        "для их включения.",
                 ephemeral=True
             )
 
@@ -84,7 +86,8 @@ class ALReminderRU(discord.Cog):
 
         if created or reminder is None:
             return await ctx.respond(
-                content="Оповещения уже отключены, используйте </reminder set:1015015152644542485> для их включения.",
+                content="Оповещения уже отключены, используйте </anilibria reminder_set:1019016839885508707>"
+                        " для их включения.",
                 ephemeral=True
             )
 
@@ -124,8 +127,8 @@ class ALReminderRU(discord.Cog):
         embed.description = """
 **Данный канал установлен для получения уведомлений о выходе новых серий аниме на сайте `anilibria.tv`**.
 
-Для включения упоминания роли пропишите </reminder ping set_role:1>
-Для отключения уведомлений пропишите </reminder disable:1015015152644542485>
+Для включения упоминания роли пропишите </anilibria ping set_role:1019016839885508707>
+Для отключения уведомлений пропишите </anilibria reminder_disable:1019016839885508707>
         """  # TODO: Add reminder ping set_role command id
 
         embed.set_footer(icon_url=self.bot.user.avatar.url, text=config.DEFAULT_FOOTER)

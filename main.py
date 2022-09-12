@@ -2,7 +2,7 @@ import datetime
 import os
 import discord
 from dotenv import load_dotenv
-from src import anilibria, Saber, ConsoleColors as Colors, db_init
+from src import Saber, ConsoleColors as Colors, db_init
 from art import tprint
 from tortoise import run_async
 

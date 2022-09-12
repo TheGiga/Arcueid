@@ -114,7 +114,7 @@ class Saber(Bot, ABC):
                 case discord.MessageCommand:
                     message_commands += f'`{command.qualified_name}`\n'
                 case _:
-                    slash_commands += f'`/{command.qualified_name}`\n'
+                    slash_commands += f'{command.mention}\n'
 
         embed.description = f"""
 **User Commands**:

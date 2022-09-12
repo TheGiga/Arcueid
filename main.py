@@ -8,7 +8,8 @@ from tortoise import run_async
 
 load_dotenv()
 
-intents = discord.Intents.all()
+intents = discord.Intents.default()
+intents.members = True
 bot_instance: Saber = Saber(intents=intents)
 
 

@@ -12,6 +12,8 @@ My own multipurpose bot, i make it mainly for fun. In-code name - Saber, because
   - [x] Оповещения о выходе новых серий `/anilibria reminder_set`
   - [ ] Поиск аниме по названию
   - [ ] Просмотр аниме
+  
+  ![image](https://i.imgur.com/XGCwRsf.png)
 
 - [x] User profiles (they will progress with the rest of bot)
   - [x] /profile

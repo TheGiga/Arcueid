@@ -1,7 +1,6 @@
-from typing import Optional
-
 import discord
 from pydantic import BaseModel, validator
+from pydantic.schema import Optional
 
 
 class Title(BaseModel):
@@ -14,12 +13,12 @@ class Title(BaseModel):
     type: dict  # {full_string, code, string, series, length}
     genres: list
     player: dict
-    description: str
+    description: Optional[str]
 
     class Config:
         validate_assignment = True
 
-    @validator('announce')
+    @validator('announce', 'description')
     def float_validator(cls, v):
         if v is None:
             return ""

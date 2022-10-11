@@ -31,7 +31,7 @@ CONNECTIONS: dict = {
 }
 
 # DEFAULT's
-DEFAULT_FOOTER: str = f'MLP © gigabit- {datetime.datetime.utcnow().year}'
+DEFAULT_FOOTER: str = f'Arcueid © gigabit- {datetime.datetime.utcnow().year}'
 
 # GUILD's
 DEFAULT_GUILD_SETTINGS = {

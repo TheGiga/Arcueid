@@ -15,7 +15,7 @@ async def get(string: str, params: dict) -> Union[dict, None]:
                 emded = discord.Embed(colour=discord.Colour.orange(), title=f"Request failed to {resp.url.host}")
                 emded.description = f"Failed request to `{resp.url}` with **{resp.status}**."
 
-            from .bot import Saber
+                from .bot import Saber
 
-            await Saber.send_log_message(emded)
+                await Saber.send_log_message(emded)
             return await resp.json(content_type=None)

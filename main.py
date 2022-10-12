@@ -9,7 +9,7 @@ from tortoise import run_async
 load_dotenv()
 
 intents = discord.Intents.default()
-intents.members = True
+intents.__setattr__("members", True)  # I want to avoid stupid read-only warning, so using setattr
 bot_instance: Saber = Saber(intents=intents)
 
 

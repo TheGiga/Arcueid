@@ -75,10 +75,11 @@ class Saber(Bot, ABC):
         if self.user.id == config.TESTING_BOT_ID:
             raise error
 
-    async def send_log_message(self, embed: discord.Embed = None):
+    @staticmethod
+    async def send_log_message(embed: discord.Embed = None):
         async with aiohttp.ClientSession() as session:
             webhook = Webhook.from_url(os.getenv("ERROR_LOG_WEBHOOK"), session=session)
-            embed.set_footer(text=self.user)
+            embed.set_footer(text=config.DEFAULT_FOOTER)
             await webhook.send(embed=embed)
 
     @property

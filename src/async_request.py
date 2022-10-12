@@ -12,9 +12,8 @@ async def get(string: str, params: dict) -> Union[dict, None]:
 
             if resp.status != 200:
                 print(f'❌ Request failed to {resp.url.host}. Error Code (Status): {resp.status}')
-
-            emded = discord.Embed(colour=discord.Colour.orange(), title=f"Request failed to {resp.url.host}")
-            emded.description = f"Failed request to `{resp.url}` with **{resp.status}**."
+                emded = discord.Embed(colour=discord.Colour.orange(), title=f"Request failed to {resp.url.host}")
+                emded.description = f"Failed request to `{resp.url}` with **{resp.status}**."
 
             from .bot import Saber
 

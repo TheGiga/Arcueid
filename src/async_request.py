@@ -1,7 +1,6 @@
 import discord
 import aiohttp
 from typing import Union
-from .bot import Saber
 
 
 async def get(string: str, params: dict) -> Union[dict, None]:
@@ -16,6 +15,8 @@ async def get(string: str, params: dict) -> Union[dict, None]:
 
             emded = discord.Embed(colour=discord.Colour.orange(), title=f"Request failed to {resp.url.host}")
             emded.description = f"Failed request to `{resp.url}` with **{resp.status}**."
+
+            from .bot import Saber
 
             await Saber.send_log_message(emded)
             return await resp.json(content_type=None)

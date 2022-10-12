@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from src import Saber, ConsoleColors as Colors, db_init
 from art import tprint
 from tortoise import run_async
+from tests import InternalTests
 
 load_dotenv()
 
@@ -26,6 +27,8 @@ async def on_ready():
     """)
     print(f"{Colors.OKCYAN}======================================================")
 
+    print(f"{Colors.WARNING} Running tests...")
+    await InternalTests().run_all()
 
 if __name__ == '__main__':
     run_async(db_init())

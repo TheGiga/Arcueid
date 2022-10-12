@@ -1,5 +1,7 @@
 ### Python template
 
+.idea
+.fleet
 *.db
 bot.db*
 

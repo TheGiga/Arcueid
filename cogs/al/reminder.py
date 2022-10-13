@@ -129,6 +129,7 @@ class ALReminderRU(discord.Cog):
 
 Для включения упоминания роли пропишите </anilibria ping set_role:1019016839885508707>
 Для отключения уведомлений пропишите </anilibria reminder_disable:1019016839885508707>
+Для добавления упоминаемой роли пропишите </anilibria ping set_role:1019016839885508707>
         """  # TODO: Add reminder ping set_role command id
 
         embed.set_footer(icon_url=self.bot.user.avatar.url, text=config.DEFAULT_FOOTER)

@@ -1,4 +1,4 @@
 from .db import *
-from .title import Title
+from .anilibria_title import Title
 
 __models__ = [User, Punishment, Guild, Reminder]

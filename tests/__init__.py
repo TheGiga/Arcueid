@@ -16,6 +16,7 @@ class InternalTests:
     async def error_log_test():
         try:
             embed_payload = discord.Embed(title='✅ Test successfull!')
+            embed_payload.description = "No errors found in discord log test."
             await Saber.send_log_message(embed_payload)
             print('✅ Erorr log test successfull!')
         except Exception as e:

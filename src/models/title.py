@@ -43,9 +43,12 @@ class Title(BaseModel):
 
         embed.title = f'{self.names.get("ru")}'
 
+        overall = self.type.get('series')
+        last = self.player['series'].get('last')
+
         embed.add_field(
             name='🧾 Серия',
-            value=f"{self.player['series'].get('last')}/{self.type.get('series')} "
+            value=f"{last if last is not None else 'N/A'}/{overall if overall is not None else 'N/A'} "
                   f"`({self.type.get('length')} мин.)`"
         )
         embed.add_field(name='ℹ️ Статус', value=str(self.status.get('string')))

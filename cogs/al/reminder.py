@@ -165,6 +165,8 @@ class ALReminderRU(discord.Cog):
                 except NotFound:
                     print(f"{clrs.FAIL}Guild with ID {reminder_object.guild_id} not found!")
                     continue
+                except discord.Forbidden:
+                    continue
 
             channel = guild.get_channel(reminder_object.guild_id)
             role_id = reminder_object.ping

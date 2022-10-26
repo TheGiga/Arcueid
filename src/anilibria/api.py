@@ -59,3 +59,4 @@ class Api:
         self.latest_call = int(time.time())
 
         return titles
+

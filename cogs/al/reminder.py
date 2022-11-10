@@ -139,10 +139,9 @@ class ALReminderRU(discord.Cog):
         )
         await channel.send(embed=embed)
 
-    @tasks.loop(minutes=10)
+    @tasks.loop(minutes=10, reconnect=True)
     async def reminder_loop(self):
-        if not self.bot.is_ready():
-            return
+        await self.bot.wait_until_ready()
 
         to_post = await self.api.get_updates()
 

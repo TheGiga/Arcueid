@@ -4,14 +4,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-import sentry_sdk
-
-sentry_sdk.init(
-    dsn=f"http://{os.getenv('SENTRY_PK')}@38.242.131.170:9000/3",
-    debug=True,
-    traces_sample_rate=1.0
-)
-
 import discord
 from src import Saber, ConsoleColors as Colors, db_init
 from art import tprint

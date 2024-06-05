@@ -18,7 +18,7 @@ bot_instance: Saber = Saber(intents=intents)
 @bot_instance.event
 async def on_ready():
     print(Colors.OKGREEN)
-    tprint("SABER")
+    tprint("STARTED")
     print(f"""
 ╔══════════╤═══════════════════════════════════────┄┄┄┄
 ║ Name     │ {bot_instance.user}

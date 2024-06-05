@@ -14,7 +14,6 @@ SUPPORT_SERVER_ID: int = 804835509968568351
 COGS: list = [
     'cogs.osu.stats',
     'cogs.social.profile',
-    'cogs.owoify.message',
     'cogs.moderation.mute',
     'cogs.moderation.punishments',
     'cogs.al.reminder',
